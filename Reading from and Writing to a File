@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    std::ofstream outputFile("example.txt");
+
+    if (outputFile.is_open()) {
+        outputFile << "This is a test.\n";
+        outputFile << "C++ File handling is powerful!";
+        outputFile.close();
+    } else {
+        std::cout << "Unable to open file." << std::endl;
+    }
+
+    std::ifstream inputFile("example.txt");
+    std::string line;
+
+    if (inputFile.is_open()) {
+        while (getline(inputFile, line)) {
+            std::cout << line << std::endl;
+        }
+        inputFile.close();
+    } else {
+        std::cout << "Unable to open file." << std::endl;
+    }
+
+    return 0;
+}
